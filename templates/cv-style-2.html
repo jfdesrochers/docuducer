@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CV / Resume</title>
+    <style>
+        /* Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+        :root {
+            --primary-color: #809CC0;
+            --secondary-color: #EEEEEE;
+            --section-margin: 139pt;
+            --main-title-margin: 30pt;
+            --margin: 15pt;
+            --body-size: 10.5pt;
+            --h1-size: 27pt;
+            --h2-size: 22.5pt;
+            --h3-size: 18pt;
+            --h4-size: 11.25pt;
+        }
+
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        @page {
+            margin: 36pt;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: Mulish, 'Avenir Next', 'Segoe UI', Arial, sans-serif;
+            margin: 0 auto;
+            padding: 0;
+            font-size: var(--body-size);
+        }
+
+        #doc {
+            position: relative;
+            width: 612pt;
+            min-height: 100%;
+            border: solid 1px #7e7e7e;
+            padding: 36pt;
+            margin: 1rem;
+        }
+
+        @media print {
+            #doc {
+                width: 100%;
+                border: none;
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        /* Custom Styles */
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: Oswald, 'Avenir Next', 'Segoe UI', Arial, sans-serif;
+            font-weight: 300;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: var(--h1-size);
+        }
+
+        h2 {
+            font-size: var(--h2-size);
+        }
+
+        h3 {
+            font-size: var(--h3-size);
+        }
+
+        h4 {
+            font-size: var(--h4-size);
+        }
+
+        .title-combo {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .main-title {
+            margin-bottom: var(--main-title-margin);
+        }
+
+        .main-title > h1 {
+            font-weight: 400;
+            padding-right: 1rem;
+            border-right: solid 2pt var(--primary-color);
+        }
+
+        .main-title > h2 {
+            padding-left: 1rem;
+        }
+
+        .main-title > h1, .main-title > h2 {
+            display: inline-block;
+        }
+
+        section {
+            width: 100%;
+            border-top: solid 2pt var(--secondary-color);
+            padding-top: var(--margin);
+            display: grid;
+            grid-template-columns: var(--section-margin) 1fr;
+            grid-template-rows: 1fr;
+            margin-bottom: var(--margin);
+        }
+
+        .section-item {
+            page-break-inside: avoid;
+        }
+
+        p {
+            margin: 0;
+            margin-bottom: 1rem;
+        }
+
+        .sub-title {
+            font-weight: bold;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+        }
+
+        .section-content {
+            width: 100%;
+        }
+
+        .about-content th {
+            font-weight: bold;
+            text-align: left;
+            vertical-align: top;
+            padding-right: 1rem;
+        }
+
+        .about-content td {
+            white-space: pre-wrap;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    </style>
+</head>
+<body>
+    <div id="doc">
+        <div class="main-title">
+            <h1>{{fullname}}</h1>
+            <h2>{{jobtitle}}</h2>
+        </div>
+        <section>
+            <h3 class="section-title">{{about-title}}</h3>
+            <div class="section-content">
+                <p>{{about-tagline}}</p>
+                <table class="about-content">
+                    {{#address}}
+                    <tr><th>{{title}}</th><td>{{address}}</td></tr>
+                    {{/address}}
+                    {{#homephone}}
+                    <tr><th>{{title}}</th><td>{{homephone}}</td></tr>
+                    {{/homephone}}
+                    {{#mobilephone}}
+                    <tr><th>{{title}}</th><td>{{mobilephone}}</td></tr>
+                    {{/mobilephone}}
+                    {{#email}}
+                    <tr><th>{{title}}</th><td>{{email}}</td></tr>
+                    {{/email}}
+                </table>
+            </div>
+        </section>
+        <section>
+            <h3 class="section-title">{{work-title}}</h3>
+            <div class="section-content">
+                {{#work}}
+                    <div class="section-item">
+                        <div class="title-combo">
+                            <h3>{{position}}</h3>
+                            <h4>{{dates}}</h4>
+                        </div>
+                        <p class="sub-title">{{company}}</p>
+                        {{#smalldesc}}
+                        <p>{{smalldesc}}</p>
+                        {{/smalldesc}}
+                        <ul>
+                            {{#task1}}
+                            <li>{{task1}}</li>
+                            {{/task1}}
+                            {{#task2}}
+                            <li>{{task2}}</li>
+                            {{/task2}}
+                            {{#task3}}
+                            <li>{{task3}}</li>
+                            {{/task3}}
+                            {{#task4}}
+                            <li>{{task4}}</li>
+                            {{/task4}}
+                            {{#task5}}
+                            <li>{{task5}}</li>
+                            {{/task5}}
+                            {{#task6}}
+                            <li>{{task6}}</li>
+                            {{/task6}}
+                        </ul>
+                    </div>
+                {{/work}}
+            </div>
+        </section>
+        <section>
+            <h3 class="section-title">{{education-title}}</h3>
+            <div class="section-content">
+                {{#education}}
+                <div class="section-item">
+                    <div class="title-combo">
+                        <h3>{{school}}</h3>
+                        <h4>{{dates}}</h4>
+                    </div>
+                    <p class="sub-title">{{program}}</p>
+                    {{#smalldesc}}
+                    <p>{{smalldesc}}</p>
+                    {{/smalldesc}}
+                </div>
+                {{/education}}
+            </div>
+        </section>
+        <section>
+            <h3 class="section-title">{{skills-title}}</h3>
+            <div class="section-content skills-grid">
+                {{#skills}}
+                <div class="section-item skill">
+                    <h3>{{name}}</h3>
+                    <p>{{desc}}</p>
+                </div>
+                {{/skills}}
+            </div>
+        </section>
+    </div>
+</body>
+</html>

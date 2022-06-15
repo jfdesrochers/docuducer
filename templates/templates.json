@@ -1,0 +1,14 @@
+[
+    {"name": "KMHB Request for Order", "file": "kmhb-order.html", "defaults": {}},
+    {"name": "Resume / CV Style 1", "file": "cv-style-1.html", "defaults": {}},
+    {"name": "Resume / CV Style 2", "file": "cv-style-2.html", "defaults": {
+        "about-title": "About",
+        "address.title": "Address",
+        "homephone.title": "Home",
+        "mobilephone.title": "Mobile",
+        "email.title": "Email",
+        "work-title": "Work Experience",
+        "education-title": "Education",
+        "skills-title": "Skills"
+    }}
+]

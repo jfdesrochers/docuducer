@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KMHB Request for Order</title>
+    <style>
+        /* Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        @page {
+            margin: 36pt;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: Roboto, 'Segoe UI', Calibri, Arial, sans-serif;
+            margin: 0 auto;
+            padding: 0;
+            font-size: 12pt;
+        }
+
+        #doc {
+            position: relative;
+            width: 612pt;
+            min-height: 100%;
+            border: solid 1px #7e7e7e;
+            padding: 36pt;
+            margin: 1rem;
+        }
+
+        @media print {
+            #doc {
+                width: 100%;
+                border: none;
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        /* Custom Styles */
+        img {
+            height: 42pt;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .title {
+            font-weight: bold;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        td, th {
+            border: solid 1px #000000;
+            padding: 0.2rem;
+        }
+
+        th {
+            border-bottom-width: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="doc">
+        <div class="header">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAAA4CAAAAADmhSqXAAAAAXNSR0IArs4c6QAABTZJREFUeNrt2oFx2zAMBVDugikwCabgDtyCQ3AMToERMAUaiaS/aIVOHV90Pae/vcSiKQnPkGJZSfBfluC/LP/B757fDRbxt88RHKVQdHfzN84RzCF6YiYm9c9TWuq8WFTLHp+CwVrw/LxYjqlq14LJObuQu9FqdkvyPakvipf2IPsx0gbNPYaW+QlydwpzKOuFYHbnbLxR6C/AeXhtgMkcKeEZMJKuA8uGLhu4JvkCDBAbHkdMNXoOjOSrwJmre5ENTEJfgSu8AIfqIyk8CUb0InCkYA3MyTMJ6xIML6kfwew9Gp4CExHA5SKwk5IV4c37Ec68BitN3Sin41H+FoxTQWVs/jKwK2Xh5k3Eo3g9gW/e6gDPr8DzYK9Xd5iFCgnz7mXnrsnB7sDCKO3eJ/iJdQLXFl6AM9a4BFzZOJEQN6+ztzBXgEfgBRiDCYsAIycwp5QiB+gvAbN7jNzAvNWiA+wnMCo7gclcw2Pwv/E+nPIGpgEWYfMtMUeewaABPFUsL4DFLgJX9mOHJVKh0XiA5wjAkzi80mEq14Al+bHDzOI7iFmdKAM80WYwTwc8PQe+/H2YLCo6zPvX6lGY3FMCeEqdwOko0yfAUj6SI+FUuQCsxLx1mKmBld2YKIq7ky/ApEdwNnQsOz35PowzI18CdsmRIhMJNzClEnX36j1YdMhk6vB0jfk8WHGmXHSlRcTCm5iJihNJ5VZimcBsXnEaA5xvmFC/AbYxL14G5tLFEokKsxdppTDAHZmGuBw77IqSnwAH2hJGykVgVvYh5kgEsJ/A6CUpwLfrQ30SPEev67DfxMRfgI1wuuKQduP24AVwvvDjoW9iEiH+CFFdH9J+PI0Lxl1LLb6Fe7v+2TseTsTtg4NsXCElSg1c5AzGp5tQAHaEv9NhzuZXgSWyJnYvLExETDkRcd5CkvcsbtMW7d/8mNJiD2/TXn6fFuCcXIkJr3U45R1+LzMMJkmIt8B8zhv8TqKBC1F21+nUpEcdtlscY3McA37MNHaeY3fxT3dzmujHeVh1zg3M+BAKsOYHYMEYp4obs0jyiikxV++p88VUDCOSin3yY0zbDJurq25303pJiupSDXMYYEcALnEL93LilgmMiKL2GYxEm9fUGxihvASLt1h4DCb7Phh9wysM8Jy67vB8K0PxPMBIXoFDwfxH4MB2CZh02WFgsDlsMd77VmAynBCPwEF+EEwihN2kNpbT/q+O4iQyLjRs8gMcZYzGj4xmxY9oxCHhxvfguO8sZ0MP0gDr3SmZXgEPpddO1j6TrcUHuN5UNrZNzQ8w+QCI47gvmNE3lMM9uNie6VjJHQwN6n8VjI+Gpc9EPwAuty3uVC43D8DO2KR9CmbXMIMRnc+ynwOjurwCF6s8ttGlRg0AsGnum1l0GJ1bgeMTYLLXwWkBRmR00frUCg4kyw4jr3eY6gtgfdxhpPYRLqVNjWeO+KLDyMsdRr4HllFCapy6R0/gjJqWZYr5osMcWkhmcK57UBL9EHjgMt5zemVquv3XGczVXc89mMHkvupw5T4WZ3DRtjfrJUWlnwLPKW0mQgMsKRU1bOoY6xyKIH7e4Vr7MZUAnvcvXVkvAadR2Rlc7/7Mhfb0A3KAndt3W3a4FaIrcB4ddi8XgBNmrsF5VIRrRB7gYZRlh91oY33V4QjAj4EpKip7AOZpkVqdA+yP34exlXWHoYzPgWveY+clpOSeUirWm+Lavqu39MV5dqm30Yzn7bhmwf6xnrY5iPZ5rZrxEFX9//PhX5P/4HfPrwP/AYjpe2Et+3SSAAAAAElFTkSuQmCC" alt="KMHB IT Logo">
+            <h1>Request for Order</h1>
+        </div>
+        <div><span class="title">Project</span> {{project}}</div>
+        <div class="header">
+            <div class="header-item"><div class="title">Request Number</div>{{reqnumber}}</div>
+            <div class="header-item"><div class="title">Date Requested</div>{{reqdate}}</div>
+            <div class="header-item"><div class="title">Supplied By</div>{{supplier}}</div>
+            <div class="header-item"><div class="title">Requested Via</div>{{purchaser}}</div>
+            <div class="header-item"><div class="title">Requested By</div>{{requester}}</div>
+        </div>
+        <table>
+            <thead><tr>
+                <th>Quantity</th>
+                <th>Product Description</th>
+                <th>Unit Price</th>
+                <th>Total</th>
+            </tr></thead>
+            <tbody>
+                {{#items}}
+                <tr>
+                    <td>{{qty}}</td>
+                    <td><div class="title">{{sku}}</div>{{description}}</td>
+                    <td>{{unitprice}}</td>
+                    <td>{{total}}</td>
+                </tr>
+                {{/items}}
+                <tr>
+                    <td colspan="3" class="title right">SUBTOTAL</td>
+                    <td>{{subtotal}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><em><strong>Please note</strong>: the prices indicated here are for demonstration purposes only. They are only valid on the date of this document's production and exclude any taxes, shipping or other fees.</em></p>
+    </div>
+</body>
+</html>
